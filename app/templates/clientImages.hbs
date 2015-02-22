@@ -1,0 +1,64 @@
+
+<div class="container" id="main">
+<div class="row">
+    <div>
+        <div class="col-md-3">
+
+            <form role="form" enctype="multipart/form-data" method="post" id="fileinfo" {{action 'uploadImage' on='submit'}}>
+                <div class="uploadImage form-group">
+                    
+                    <div class="panel panel-primary">
+                         <div class="panel-heading">
+                         <h3 class="panel-title">Upload</h3>
+                      </div>
+                      <div class="panel-body">
+                         {{input type="file" id="inputFile"  class="form-control" name="file"}}
+                         <p class="help-block">Please pick JPEG image.</p>
+
+                        <div class="submitPicture">
+                            <button type="submit" class="btn btn-info">Submit picture</button>
+                        </div>
+
+                      </div>
+                    </div>
+
+                   
+                </div>
+            </form>
+
+
+            
+            <div class="sidebar-nav">
+
+                 <div class="panel panel-primary">
+                         <div class="panel-heading">
+                         <h3 class="panel-title">Client pictures</h3>
+                      </div>
+                      <div class="panel-body">
+                        
+                         <ul class="list-group">
+                            {{#each image in model}}
+                              {{#link-to 'clientImage' image}}
+                                <li class="list-group-item">{{ getImageName image.url }} </li>
+                              {{/link-to}}
+                            {{/each}}
+                         </ul>
+                       
+
+                      </div>
+                </div>
+
+              
+               
+            </div>
+             
+
+        </div>
+
+        <div class="col-md-9">
+            {{outlet}}
+        </div>
+    </div>
+</div>
+</div>
+

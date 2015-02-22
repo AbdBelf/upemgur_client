@@ -1,0 +1,45 @@
+
+<div class="container" id="main">
+<div class="row">
+    <div>
+        <div class="col-md-3">
+            
+             <div class="well sidebar-nav">
+                <strong>
+                    {{#link-to 'createUser' }}
+                        <li class="list-group-item">Create User</li>
+                    {{/link-to}}
+                </strong>
+            </div>
+
+             <div class="sidebar-nav">
+
+                 <div class="panel panel-primary">
+                         <div class="panel-heading">
+                         <h3 class="panel-title">Pictures</h3>
+                      </div>
+                      <div class="panel-body">
+                        
+                        <ul class="list-group">
+                            {{#each image in model}}
+                              {{#link-to 'adminImage' image}}
+                                <li class="list-group-item">{{ getImageName image.url }} </li>
+                              {{/link-to}}
+                            {{/each}}
+                        </ul>
+                       
+
+                      </div>
+                </div>
+            </div>
+             
+
+        </div>
+
+        <div class="col-md-9">
+            {{outlet}}
+        </div>
+    </div>
+</div>
+</div>
+

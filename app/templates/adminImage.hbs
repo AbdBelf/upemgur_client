@@ -1,0 +1,23 @@
+<div class="well">
+	<div class="clientImage">
+		<img id="clientImageUploaded" {{bind-attr src=base64}} class="img-thumbnail" width="300" height="300" align="middle">
+	</div>
+	<button class="btn btn-danger btn-sm " {{action 'deleteImage'}}>
+		<i class="glyphicon glyphicon-remove"></i>
+			Delete
+	</button>
+
+	<button class="btn btn-info btn-sm "  {{action 'shareImage'}}>
+		<i class="glyphicon glyphicon-globe"></i>
+			{{#if isPublic}}
+				Public
+			{{else}}
+				Private
+			{{/if}}
+	</button>
+	
+	<h5  class="alert alert-info" role="alert">
+		Exif : </br>
+		{{imageExif}}
+	</h5>
+</div>
